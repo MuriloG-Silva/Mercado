@@ -1,51 +1,36 @@
 
-import json
-import os
+from packages.BaseDados import BaseDados
 
-class funcionarios():
+class funcionarios(BaseDados):
     def __init__(self):
-        self.arquivo2 = "funcionarios.json"
-        self.funcionarios = self.carregar_dados2()
+        super().__init__("funcionarios.json")
 
-    #para carregar os dados dos funcionários
-    def carregar_dados2(self):
-        if os.path.exists(self.arquivo2):
-            with open(self.arquivo2, "r") as f:
-                return json.load(f)
-        return {}
-
-    #para salvar os dados dos funcionários
-    def salvar_dados2(self):
-        with open(self.arquivo2, "w") as f:
-            json.dump(self.funcionarios, f, indent=4)
-
-    def adicionar_func(self):
+    # Sobrescreve o método adicionar
+    def adicionar(self):
         nome = input("Qual o nome do funcionário que deseja adicionar?\n")
         codigo = input("Qual a credencial desse funcionário?\n")
         quantidade = input("Qual o salário do funcionário?\n")
 
-        if codigo in self.funcionarios.keys():
+        if codigo in self.dados:
             print("\nEsse funcionário já está cadastrado.")
         else:
-            self.funcionarios[codigo] = {
-                'nome': nome,
-                'quantidade': quantidade
-            }
-            print("\nProduto adicionado ao estoque.")
-        self.salvar_dados2()
+            self.dados[codigo] = {'nome': nome, 'quantidade': quantidade}
+            print("\nFuncionário adicionado ao sistema.")
+        self.salvar_dados()
 
-    def listar_func(self):
-        if not self.funcionarios:
+    # Sobrescreve o método listar
+    def listar(self):
+        if not self.dados:
             print("Nenhum funcionário está cadastrado.")
             return
         print("\nFuncionários cadastrados:\n")
-        for codigo, info in self.funcionarios.items():
+        for codigo, info in self.dados.items():
             print(f"Nome: {info['nome']} || Credencial: {codigo} || Salário: {info['quantidade']}")
 
-
-    def remover_func(self):
-        codigo = input("Qual a  credencial do funcionário que deseja remover?\n")
-        if codigo in self.funcionarios:
-            del self.funcionarios[codigo]
-            self.salvar_dados2()
-            print("\nFuncionário retirado do sistema!")
+    # Sobrescreve o método remover
+    def remover(self):
+        codigo = input("Qual a credencial do funcionário que deseja remover?\n")
+        if codigo in self.dados:
+            del self.dados[codigo]
+            self.salvar_dados()
+            print("\nFuncionário removido do sistema!")
