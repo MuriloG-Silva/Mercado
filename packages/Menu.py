@@ -1,8 +1,10 @@
+from packages.Funcionarios import funcionarios
 from packages.Estoque import estoque
 
 class menu():
     def __init__(self):
         self.estoque_atual = estoque()
+        self.estoque_atual = funcionarios()
 
     def menu(self):
         while True:
