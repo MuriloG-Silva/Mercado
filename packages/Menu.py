@@ -8,7 +8,11 @@ class menu():
 
     def menu(self):
         while True:
-            menu_op = input("\nVocê deseja o menu de Produtos, menu de Funcionários ou sair do sistema?\n1. para Produtos\n2. para Funcionários\n3. para sair do sistema\n")
+            print("\nVocê deseja o menu de Produtos, menu de Funcionários ou sair do sistema?")
+            print("1. para Produtos")
+            print("2. para Funcionários")
+            print("3. para abrir uma janela com a interface gráfica")
+            menu_op = input()
             
             # Menu de Produtos (usa métodos polimórficos de 'estoque')
             if menu_op == "1":
@@ -22,11 +26,11 @@ class menu():
                 opcao = input("\nEscolha uma das opções: ")
 
                 if opcao == "1":
-                    self.estoque.adicionar()  # Chamada polimórfica
+                    self.estoque.adicionar() 
                 elif opcao == "2":
-                    self.estoque.listar()    # Chamada polimórfica
+                    self.estoque.listar()    
                 elif opcao == "3":
-                    self.estoque.remover()   # Chamada polimórfica
+                    self.estoque.remover()   
                 elif opcao == "4":
                     self.estoque.edit_prod()    
                 elif opcao == "5":
@@ -47,11 +51,11 @@ class menu():
                 opcao = input("\nEscolha uma das opções: ")
 
                 if opcao == "1":
-                    self.funcionarios.adicionar()  # Chamada polimórfica
+                    self.funcionarios.adicionar()  
                 elif opcao == "2":
-                    self.funcionarios.listar()    # Chamada polimórfica
+                    self.funcionarios.listar()    
                 elif opcao == "3":
-                    self.funcionarios.remover()   # Chamada polimórfica
+                    self.funcionarios.remover()  
                 elif opcao == "4":
                     print("\nSistema fechado.\n")
                     break
