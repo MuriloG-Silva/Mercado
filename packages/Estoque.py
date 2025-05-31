@@ -10,8 +10,9 @@ class estoque(BaseDados):
             return "Já temos esse produto em estoque. Quantidade atualizada."
         else:
             self.dados[codigo] = {'nome': nome, 'quantidade': quantidade}
+            self.salvar_dados()
             return "Produto adicionado ao estoque."
-        self.salvar_dados()
+        
 
     def listar(self):
         if not self.dados:
