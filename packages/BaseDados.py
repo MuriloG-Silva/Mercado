@@ -16,7 +16,6 @@ class BaseDados:
         with open(self.arquivo, "w") as f:
             json.dump(self.dados, f, indent=4)
 
-    # Métodos polimórficos (para serem sobrescritos)
     def adicionar(self):
         raise NotImplementedError("Método 'adicionar' deve ser implementado pela subclasse.")
 
