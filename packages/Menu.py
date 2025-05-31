@@ -14,7 +14,6 @@ class menu():
             print("3. para abrir uma janela com a interface gráfica")
             menu_op = input()
             
-            # Menu de Produtos (usa métodos polimórficos de 'estoque')
             if menu_op == "1":
                 print("\n--------| Menu de Produtos |-------\n")
                 print("1. Adicionar um produto")
@@ -41,7 +40,6 @@ class menu():
                 else:
                     print("Opção inválida!")
 
-            # Menu de Funcionários (usa métodos polimórficos de 'funcionarios')
             elif menu_op == "2":
                 print("\n--------| Menu de Funcionários |-------\n")
                 print("1. Adicionar um funcionário")
